@@ -22,9 +22,6 @@ export class ReviewComments extends GitHubConverter {
     );
 
     if (!repository) return [];
-
-    // Parse the PR number from the pull request url
-    const prNum = GitHubCommon.parsePRnumber(commit.pull_request_url);
     return [
       {
         model: 'vcs_PullRequestCommit',
@@ -34,7 +31,7 @@ export class ReviewComments extends GitHubConverter {
             repository,
           },
           pullRequest: {
-            number: prNum,
+            number: commit.pull_number,
             repository,
           },
         },
