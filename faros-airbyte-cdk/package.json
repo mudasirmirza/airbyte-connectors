@@ -1,6 +1,6 @@
 {
   "name": "faros-airbyte-cdk",
-  "version": "0.1.96",
+  "version": "0.0.1",
   "description": "Airbyte Connector Development Kit (CDK) for JavaScript/TypeScript",
   "keywords": [
     "airbyte",
@@ -24,7 +24,7 @@
   ],
   "main": "./lib",
   "engines": {
-    "node": ">=14.5"
+    "node": ">=16"
   },
   "scripts": {
     "build": "tsc -p src",
@@ -37,7 +37,7 @@
     "watch": "tsc -b -w src test"
   },
   "dependencies": {
-    "commander": "^9.0.0",
+    "commander": "^9.3.0",
     "fast-redact": "^3.0.2",
     "json-schema-traverse": "^1.0.0",
     "lodash": "^4.17.21",

@@ -1,5 +1,4 @@
 import {AirbyteLog, AirbyteLogLevel, AirbyteRecord} from 'faros-airbyte-cdk';
-import fs from 'fs';
 import _ from 'lodash';
 import {getLocal} from 'mockttp';
 import os from 'os';
@@ -31,7 +30,6 @@ describe('github', () => {
 
   afterEach(async () => {
     await mockttp.stop();
-    fs.unlinkSync(configPath);
   });
 
   test('process and write records', async () => {
@@ -166,7 +164,6 @@ describe('github', () => {
   });
 
   test('fail to process bad records when strategy is FAIL', async () => {
-    fs.unlinkSync(configPath);
     configPath = await tempConfig(mockttp.url, InvalidRecordStrategy.FAIL);
     const cli = await CLI.runWith([
       'write',
@@ -188,8 +185,8 @@ describe('github', () => {
     expect(stdout).toMatch('Would write 0 records');
     expect(stdout).toMatch('Errored 1 records');
     expect(stdout).toMatch('Skipped 0 records');
-    const stderr = await read(cli.stderr);
-    expect(stderr).toMatch('Undefined stream mytestsource__github__bad');
+    expect(stdout).toMatch('Undefined stream mytestsource__github__bad');
+    expect(await read(cli.stderr)).toBe('');
     expect(await cli.wait()).toBeGreaterThan(0);
   });
 
