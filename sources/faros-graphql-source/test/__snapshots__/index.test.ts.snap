@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`index adapt V1 query 1`] = `
+Array [
+  Object {
+    "A": Object {
+      "B": Object {
+        "C": Array [
+          Object {
+            "k3": "v3",
+          },
+        ],
+      },
+    },
+  },
+  Object {
+    "A": Object {
+      "B": Object {
+        "C": Array [
+          Object {
+            "k4": "v4",
+          },
+        ],
+      },
+    },
+  },
+]
+`;
+
 exports[`index flat result model 1`] = `
 Array [
   Object {
@@ -88,46 +115,6 @@ Array [
         "C": Array [
           Object {
             "k2": "v2",
-          },
-        ],
-      },
-    },
-  },
-]
-`;
-
-exports[`index remap origin 1`] = `
-Array [
-  Object {
-    "A": Object {
-      "B": Object {
-        "C": Array [
-          Object {
-            "k1": "v1",
-            "origin": "originB",
-          },
-        ],
-      },
-    },
-  },
-  Object {
-    "A": Object {
-      "B": Object {
-        "C": Array [
-          Object {
-            "k2": "v2",
-            "origin": "originC",
-          },
-        ],
-      },
-    },
-  },
-  Object {
-    "A": Object {
-      "B": Object {
-        "C": Array [
-          Object {
-            "k2": "v3",
           },
         ],
       },
